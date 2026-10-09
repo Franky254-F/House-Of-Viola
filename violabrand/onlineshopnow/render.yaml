@@ -1,0 +1,23 @@
+# Render "Blueprint". Create a Blueprint from your GitHub repository and fill in the values it asks for.
+services:
+  - type: web
+    name: online-shop-now
+    runtime: docker
+    plan: free
+    region: frankfurt
+    autoDeploy: true
+    envVars:
+      - key: DB_HOST
+        sync: false          # from your MySQL host, for example xxxx.aivencloud.com
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false          # Aiven's default is "defaultdb"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_SSL
+        value: "1"
+      - key: CLOUDINARY_URL
+        sync: false          # keeps product pictures when Render restarts (see DEPLOY.md)
